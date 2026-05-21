@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MailIcon, EyeIcon, BrainIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
@@ -189,12 +189,11 @@ export function LoginPage() {
 
           <p className="text-center text-sm text-textMuted mt-10">
             ¿Necesita acceso?{' '}
-            <a
-              href="/registro"
+            <Link
+              to="/registro"
               className="text-primary font-medium hover:underline">
-              
               Crear cuenta corporativa
-            </a>
+            </Link>
           </p>
         </motion.div>
       </div>

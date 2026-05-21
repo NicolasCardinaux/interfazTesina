@@ -171,7 +171,7 @@ export function RegistroPage() {
           className="w-full max-w-[440px] py-8">
           
           {/* Logo */}
-          <div className="flex items-center gap-2 text-primary font-bold text-2xl mb-8">
+          <div className="flex items-center gap-2 text-primary font-bold text-2xl mb-6">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <BrainIcon className="w-6 h-6 text-white" />
             </div>
@@ -183,11 +183,11 @@ export function RegistroPage() {
           <h1 className="text-2xl font-bold text-textMain mb-1">
             Crear cuenta corporativa
           </h1>
-          <p className="text-sm text-textMuted mb-8">
+          <p className="text-sm text-textMuted mb-6">
             Complete sus datos y seleccione su nivel de acceso.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name */}
             <div className="space-y-1.5">
               <label className="text-sm font-medium text-textMuted block">
@@ -335,9 +335,8 @@ export function RegistroPage() {
 
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-primary-hover text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm mt-2">
-              
-              Solicitar Registro
+              className="w-full bg-primary hover:bg-primary-hover text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm mt-4">
+              Crear cuenta
             </button>
           </form>
 
