@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes Completos - BizLens AI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+        body {
+            font-family: 'Architects Daughter', 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e5e7eb;
+            color: #1f2937;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        h1.main-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #111827;
+        }
+
+        .screen-title {
+            max-width: 1024px;
+            margin: 40px auto 10px auto;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: #111827;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        .wireframe {
+            background-color: #ffffff;
+            border: 3px solid #1f2937;
+            border-radius: 4px;
+            max-width: 1024px;
+            margin: 0 auto 60px auto;
+            box-shadow: 8px 8px 0px rgba(31, 41, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        /* Utilidades Wireframe */
+        .wf-box {
+            border: 2px solid #1f2937;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #f9fafb;
+            padding: 10px;
+        }
+
+        .wf-image {
+            background: 
+                linear-gradient(to bottom right, transparent 49%, #9ca3af 49%, #9ca3af 51%, transparent 51%), 
+                linear-gradient(to top right, transparent 49%, #9ca3af 49%, #9ca3af 51%, transparent 51%);
+            background-color: #f3f4f6;
+            border: 2px solid #1f2937;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1f2937;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .wf-text-line {
+            height: 12px;
+            background-color: #d1d5db;
+            margin-bottom: 8px;
+            border-radius: 2px;
+        }
+        .wf-text-line.short { width: 40%; }
+        .wf-text-line.medium { width: 70%; }
+        .wf-text-line.long { width: 95%; }
+        .wf-text-line.full { width: 100%; }
+
+        .wf-button {
+            border: 2px solid #1f2937;
+            background-color: #e5e7eb;
+            padding: 8px 16px;
+            display: inline-block;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .wf-input {
+            border: 2px solid #1f2937;
+            padding: 10px;
+            margin-bottom: 15px;
+            color: #9ca3af;
+            background: #fff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Layouts compartidos */
+        .layout-app { display: flex; flex-grow: 1; min-height: 500px; }
+        
+        .wf-sidebar {
+            width: 220px;
+            border-right: 3px solid #1f2937;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #f9fafb;
+        }
+
+        .wf-sidebar-item {
+            border: 2px solid transparent;
+            padding: 8px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .wf-sidebar-item.active {
+            border: 2px solid #1f2937;
+            font-weight: bold;
+            background-color: #e5e7eb;
+        }
+
+        .wf-main {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .wf-header {
+            border-bottom: 3px solid #1f2937;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid #1f2937;
+            padding: 10px 0;
+            align-items: center;
+        }
+        .table-row > div { flex: 1; padding: 0 10px; }
+        .table-header { font-weight: bold; border-bottom: 2px solid #1f2937; background: #f9fafb;}
+
+        /* Sidebar Generator Helper */
+        .sidebar-content {
+            display: flex; flex-direction: column; gap: 5px; font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">Sistema Completo BizLens AI - Mockups (Baja Fidelidad)</h1>
+    <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        A continuación se presentan las 18 vistas del sistema. Haz capturas de pantalla de cada recuadro blanco para tu documentación.
+    </p>
+
+    <!-- ==============================================
+         1. LANDING DE VENTAS 
+    ================================================= -->
+    <div class="screen-title">1. Landing de Ventas</div>
+    <div class="wireframe">
+        <div class="wf-header">
+            <div style="font-weight: bold; font-size: 1.5rem;">[ Logo BizLens AI ]</div>
+            <div style="display: flex; gap: 20px;">
+                <span>Producto</span>
+                <span>Precios</span>
+                <span class="wf-button">Iniciar Sesión</span>
+            </div>
+        </div>
+        <div style="display: flex; padding: 60px 40px; gap: 40px; align-items: center;">
+            <div style="flex: 1;">
+                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 20px;">Inteligencia para tu negocio.</div>
+                <div class="wf-text-line long"></div><div class="wf-text-line medium" style="margin-bottom: 30px;"></div>
+                <div class="wf-button" style="padding: 15px 30px;">Comenzar Ahora</div>
+            </div>
+            <div class="wf-image" style="flex: 1; height: 300px;">[ Gráfico Hero ]</div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         2. LOGIN 
+    ================================================= -->
+    <div class="screen-title">2. Login (Iniciar Sesión)</div>
+    <div class="wireframe" style="align-items: center; justify-content: center; background: #f3f4f6;">
+        <div class="wf-box" style="width: 400px; flex-direction: column; padding: 40px; text-align: left; background: white; margin: 40px 0;">
+            <h2 style="text-align: center; margin-top: 0;">Bienvenido a BizLens AI</h2>
+            <div class="wf-input">Correo electrónico</div>
+            <div class="wf-input">Contraseña</div>
+            <div style="text-align: right; font-size: 0.8rem; margin-bottom: 20px;">¿Olvidaste tu contraseña?</div>
+            <div class="wf-button" style="width: 100%; box-sizing: border-box; background: #1f2937; color: white;">Ingresar al Panel</div>
+            <div style="text-align: center; margin-top: 20px; font-size: 0.9rem;">¿No tienes cuenta? Regístrate</div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         3. REGISTRO 
+    ================================================= -->
+    <div class="screen-title">3. Registro</div>
+    <div class="wireframe" style="align-items: center; justify-content: center; background: #f3f4f6;">
+        <div class="wf-box" style="width: 500px; flex-direction: column; padding: 40px; text-align: left; background: white; margin: 40px 0;">
+            <h2 style="text-align: center; margin-top: 0;">Crear Cuenta Corporativa</h2>
+            <div class="grid-2" style="margin-bottom: 0;">
+                <div class="wf-input">Nombre</div>
+                <div class="wf-input">Apellido</div>
+            </div>
+            <div class="wf-input">Empresa</div>
+            <div class="wf-input">Correo Corporativo</div>
+            <div class="wf-input">Contraseña</div>
+            <div class="wf-button" style="width: 100%; box-sizing: border-box; background: #1f2937; color: white;">Registrarse</div>
+        </div>
+    </div>
+
+    <!-- MACRO ESTRUCTURA PARA EL SISTEMA INTERNO -->
+    <style>
+        /* Sidebar Template classes */
+        .sb-dash { } .sb-ops { } .sb-data { } .sb-fin { } .sb-rep { } .sb-ai { } .sb-conf { }
+    </style>
+
+    <!-- ==============================================
+         4. DASHBOARD GENERAL 
+    ================================================= -->
+    <div class="screen-title">4. Dashboard General</div>
+    <div class="wireframe">
+        <div class="wf-header">
+            <div><strong>BizLens AI</strong> | Gerencia</div>
+            <div>[Perfil Usuario]</div>
+        </div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content">
+                    <div class="wf-sidebar-item active">Dashboard</div>
+                    <div class="wf-sidebar-item">Alertas</div>
+                    <div class="wf-sidebar-item">Operaciones</div>
+                    <div class="wf-sidebar-item">Finanzas</div>
+                    <div class="wf-sidebar-item">Reportes</div>
+                    <div class="wf-sidebar-item">Chat IA</div>
+                    <div class="wf-sidebar-item">Parámetros</div>
+                </div>
+            </div>
+            <div class="wf-main">
+                <h2>Resumen General</h2>
+                <div class="grid-4">
+                    <div class="wf-box" style="height: 80px;">Ingresos: $1.2M</div>
+                    <div class="wf-box" style="height: 80px;">Gastos: $800K</div>
+                    <div class="wf-box" style="height: 80px;">Eficiencia: 85%</div>
+                    <div class="wf-box" style="height: 80px; border-color: red;">Alertas: 2</div>
+                </div>
+                <div class="grid-2" style="height: 200px;">
+                    <div class="wf-image">[ Gráfico Rendimiento Mensual ]</div>
+                    <div class="wf-image">[ Gráfico Distribución ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         5. ALERTAS 
+    ================================================= -->
+    <div class="screen-title">5. Alertas</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content">
+                    <div class="wf-sidebar-item">Dashboard</div>
+                    <div class="wf-sidebar-item active">Alertas (2)</div>
+                    <div class="wf-sidebar-item">Operaciones</div>
+                </div>
+            </div>
+            <div class="wf-main">
+                <div style="display: flex; justify-content: space-between;">
+                    <h2>Centro de Alertas</h2>
+                    <div><span class="wf-button">Filtrar</span></div>
+                </div>
+                <div class="wf-box" style="flex-direction: column; align-items: stretch; text-align: left; padding: 0;">
+                    <div class="table-row table-header"><div>Nivel</div><div>Descripción</div><div>Fecha</div><div>Acción</div></div>
+                    <div class="table-row" style="background: #fee2e2;">
+                        <div>[!] CRÍTICO</div><div>Caída de servidor de BD</div><div>Hace 5 min</div><div><span class="wf-button">Resolver</span></div>
+                    </div>
+                    <div class="table-row" style="background: #fef3c7;">
+                        <div>[?] AVISO</div><div>Presupuesto Mkt excedido al 90%</div><div>Hace 2 hs</div><div><span class="wf-button">Ver Detalle</span></div>
+                    </div>
+                    <div class="table-row">
+                        <div>[i] INFO</div><div>Respaldo semanal completado</div><div>Ayer</div><div><span class="wf-button">Ignorar</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         6. OPERACIONES 
+    ================================================= -->
+    <div class="screen-title">6. Operaciones</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Dashboard</div><div class="wf-sidebar-item active">Operaciones</div><div class="wf-sidebar-item">Ingesta de datos</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Estado de Operaciones</h2>
+                <div class="grid-3" style="margin-bottom: 20px;">
+                    <div class="wf-box" style="flex-direction: column;"><h3>Línea A</h3>Estado: Operativa</div>
+                    <div class="wf-box" style="flex-direction: column;"><h3>Línea B</h3>Estado: En Mantenimiento</div>
+                    <div class="wf-box" style="flex-direction: column;"><h3>Línea C</h3>Estado: Operativa</div>
+                </div>
+                <div class="wf-image" style="height: 250px;">[ Mapa de Procesos / Diagrama de Flujo Operativo ]</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         7. INGESTA DE DATOS 
+    ================================================= -->
+    <div class="screen-title">7. Ingesta de Datos</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Operaciones</div><div class="wf-sidebar-item active">Ingesta de datos</div><div class="wf-sidebar-item">Auditoría</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Conexiones y Orígenes de Datos</h2>
+                <div class="grid-2">
+                    <div class="wf-box" style="flex-direction: column; align-items: stretch; text-align: left; padding: 20px;">
+                        <h3>Sincronización Automática</h3>
+                        <div class="table-row"><div>ERP SAP</div><div>Estado: Sincronizado</div><div><span class="wf-button">Forzar Sync</span></div></div>
+                        <div class="table-row"><div>Salesforce</div><div>Estado: Pendiente</div><div><span class="wf-button">Conectar</span></div></div>
+                    </div>
+                    <div class="wf-box" style="flex-direction: column; align-items: center; padding: 20px;">
+                        <h3>Carga Manual</h3>
+                        <div class="wf-image" style="width: 100%; height: 100px; margin-bottom: 10px;">[ Área de Arrastrar CSV / Excel ]</div>
+                        <span class="wf-button">Subir Archivo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         8. AUDITORÍA 
+    ================================================= -->
+    <div class="screen-title">8. Auditoría</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Ingesta de datos</div><div class="wf-sidebar-item active">Auditoría</div><div class="wf-sidebar-item">Finanzas</div></div>
+            </div>
+            <div class="wf-main" style="gap: 15px;">
+                <div style="display: flex; justify-content: flex-start; align-items: center; gap: 15px;">
+                    <h2 style="margin: 0;">Auditoría de Ingesta</h2>
+                    <span style="background: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">ESTADO: BORRADOR</span>
+                </div>
+
+                <div class="wf-box" style="flex-direction: column; align-items: stretch; text-align: left; padding: 0; background: white; margin-top: 10px;">
+                    <div class="table-row table-header" style="font-size: 0.85rem; color: #4b5563;">
+                        <div style="width: 30px;">☑</div>
+                        <div style="flex: 1;">Fecha</div>
+                        <div style="flex: 1.5;">Producto</div>
+                        <div style="flex: 1.5; text-align: right;">Cantidad_Producida</div>
+                        <div style="flex: 1; text-align: right;">Costo</div>
+                        <div style="flex: 2; padding-left: 15px;">Atributos Extra detectados (JSONB)</div>
+                    </div>
+                    <div class="table-row">
+                        <div style="width: 30px; color: #ef4444;">☑</div>
+                        <div style="flex: 1; color: #6b7280;">2026-10-01</div>
+                        <div style="flex: 1.5; font-weight: bold;">PRD-001</div>
+                        <div style="flex: 1.5; text-align: right;">1200</div>
+                        <div style="flex: 1; text-align: right;">$4,500.00</div>
+                        <div style="flex: 2; padding-left: 15px; font-family: monospace; color: #6b7280;">{"lote": "A1"}</div>
+                    </div>
+                    <div class="table-row">
+                        <div style="width: 30px; color: #ef4444;">☑</div>
+                        <div style="flex: 1; color: #6b7280;">2026-10-02</div>
+                        <div style="flex: 1.5; font-weight: bold;">PRD-088</div>
+                        <div style="flex: 1.5; text-align: right;">420</div>
+                        <div style="flex: 1; text-align: right; background: #fef3c7; color: #d97706; padding: 4px;">⚠ $0.00</div>
+                        <div style="flex: 2; padding-left: 15px; font-family: monospace; color: #6b7280;">{"lote": "B2", "obs": "revisar"}</div>
+                    </div>
+                    <div class="table-row">
+                        <div style="width: 30px; color: #ef4444;">☑</div>
+                        <div style="flex: 1; color: #6b7280;">2026-10-03</div>
+                        <div style="flex: 1.5; font-weight: bold;">PRD-210</div>
+                        <div style="flex: 1.5; text-align: right;">300</div>
+                        <div style="flex: 1; text-align: right;">$950.00</div>
+                        <div style="flex: 2; padding-left: 15px; font-family: monospace; color: #6b7280;">{"lote": "C1"}</div>
+                    </div>
+                    <div class="table-row" style="border-bottom: none;">
+                        <div style="width: 30px; color: #ef4444;">☑</div>
+                        <div style="flex: 1; color: #6b7280;">2026-10-04</div>
+                        <div style="flex: 1.5; font-weight: bold;">PRD-105</div>
+                        <div style="flex: 1.5; text-align: right;">550</div>
+                        <div style="flex: 1; text-align: right; background: #fef3c7; color: #d97706; padding: 4px;">⚠ $0.00</div>
+                        <div style="flex: 2; padding-left: 15px; font-family: monospace; color: #6b7280;">{"lote": "C2"}</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                    <div style="color: #6b7280; font-size: 0.9rem;">
+                        Se detectaron <span style="color: #10b981; font-weight: bold;">✓ 6 correctas</span> y <span style="color: #d97706; font-weight: bold;">⚠ 2 advertencias</span>.
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <span class="wf-button" style="background: white; color: #ef4444; border: 1px solid #ef4444;">✕ Rechazar Lote</span>
+                        <span class="wf-button" style="background: #10b981; color: white; border-color: #10b981;">✓ Validar y Mover a Producción...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         9. FINANZAS 
+    ================================================= -->
+    <div class="screen-title">9. Finanzas</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Auditoría</div><div class="wf-sidebar-item active">Finanzas</div><div class="wf-sidebar-item">Reportes</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Panel Financiero</h2>
+                <div class="grid-3">
+                    <div class="wf-box" style="flex-direction: column;"><div>Flujo de Caja</div><h2 style="margin:5px;">$450,000</h2></div>
+                    <div class="wf-box" style="flex-direction: column;"><div>Cuentas x Cobrar</div><h2 style="margin:5px;">$120,000</h2></div>
+                    <div class="wf-box" style="flex-direction: column;"><div>Cuentas x Pagar</div><h2 style="margin:5px;">$85,000</h2></div>
+                </div>
+                <div class="wf-image" style="height: 200px; margin-top: 20px;">[ Gráfico: Ingresos vs Gastos Proyectados ]</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         10. REPORTES 
+    ================================================= -->
+    <div class="screen-title">10. Reportes</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Finanzas</div><div class="wf-sidebar-item active">Reportes</div><div class="wf-sidebar-item">Archivos</div></div>
+            </div>
+            <div class="wf-main">
+                <div style="display: flex; justify-content: space-between;"><h2>Generador de Reportes</h2><span class="wf-button">+ Nuevo Reporte</span></div>
+                <div class="grid-2">
+                    <div class="wf-box" style="flex-direction: column; align-items: flex-start; padding: 20px; text-align: left;">
+                        <h3>Plantillas</h3>
+                        <div>- Resumen Ejecutivo Mensual</div>
+                        <div>- Balance Financiero</div>
+                        <div>- Auditoría de Operaciones</div>
+                        <div class="wf-button" style="margin-top: 20px;">Generar Seleccionado</div>
+                    </div>
+                    <div class="wf-image" style="height: 250px;">[ Previsualización de PDF ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         11. ARCHIVOS 
+    ================================================= -->
+    <div class="screen-title">11. Archivos</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Reportes</div><div class="wf-sidebar-item active">Archivos</div><div class="wf-sidebar-item">Administración de IA</div></div>
+            </div>
+            <div class="wf-main">
+                <div style="display: flex; justify-content: space-between;"><h2>Gestor Documental</h2><span class="wf-button">Subir Archivo</span></div>
+                <div class="grid-4" style="margin-bottom: 20px;">
+                    <div class="wf-box" style="height: 100px; flex-direction: column;">[Ico Carpeta]<br>Finanzas 2026</div>
+                    <div class="wf-box" style="height: 100px; flex-direction: column;">[Ico Carpeta]<br>Contratos</div>
+                    <div class="wf-box" style="height: 100px; flex-direction: column;">[Ico Carpeta]<br>Reportes IA</div>
+                </div>
+                <div class="table-row table-header"><div>Nombre</div><div>Tamaño</div><div>Modificado</div></div>
+                <div class="table-row"><div>Balance_Q2.xlsx</div><div>2.4 MB</div><div>Ayer</div></div>
+                <div class="table-row"><div>Contrato_Proveedor.pdf</div><div>1.1 MB</div><div>12/04/2026</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         12. ADMINISTRACIÓN DE IA 
+    ================================================= -->
+    <div class="screen-title">12. Administración de IA</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Archivos</div><div class="wf-sidebar-item active">Administración de IA</div><div class="wf-sidebar-item">Chat con IA</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Monitoreo de Modelos IA</h2>
+                <div class="grid-3" style="margin-bottom: 20px;">
+                    <div class="wf-box" style="flex-direction: column;"><div>Tokens Consumidos</div><h2>1.2M</h2></div>
+                    <div class="wf-box" style="flex-direction: column;"><div>Costo Estimado</div><h2>$24.50</h2></div>
+                    <div class="wf-box" style="flex-direction: column;"><div>Peticiones Hoy</div><h2>342</h2></div>
+                </div>
+                <div class="wf-image" style="height: 200px;">[ Gráfico: Uso de IA en el tiempo ]</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         13. CHAT CON IA 
+    ================================================= -->
+    <div class="screen-title">13. Chat con IA</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Administración de IA</div><div class="wf-sidebar-item active">Chat con IA</div><div class="wf-sidebar-item">Configuraciones de IA</div></div>
+            </div>
+            <div class="wf-main" style="padding: 0;">
+                <div style="flex: 1; display: flex; flex-direction: column; background: white;">
+                    <div style="padding: 15px; border-bottom: 2px solid #333; font-weight: bold;">Asistente Analítico BizLens</div>
+                    <div style="flex: 1; padding: 20px; overflow-y: auto;">
+                        <div style="text-align: right; margin-bottom: 10px;"><span style="background:#e5e7eb; padding:10px; border-radius:10px; display:inline-block; border: 2px solid #333;">¿Cuál fue el margen operativo del mes pasado?</span></div>
+                        <div style="text-align: left; margin-bottom: 10px;"><span style="background:#f9fafb; padding:10px; border-radius:10px; display:inline-block; border: 2px solid #333; max-width:70%;">El margen operativo en septiembre fue del 24%. Esto representa un incremento del 2% respecto a agosto.</span></div>
+                    </div>
+                    <div style="padding: 15px; border-top: 2px solid #333; display: flex; gap: 10px;">
+                        <div class="wf-input" style="margin:0; flex:1;">Escribe un mensaje...</div>
+                        <span class="wf-button">Enviar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         14. CONFIGURACIONES DE IA 
+    ================================================= -->
+    <div class="screen-title">14. Configuraciones de IA</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Chat con IA</div><div class="wf-sidebar-item active">Configuraciones de IA</div><div class="wf-sidebar-item">Parámetros</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Ajustes del Motor Híbrido</h2>
+                <div class="grid-2">
+                    <div class="wf-box" style="flex-direction: column; align-items: flex-start; padding: 20px; text-align: left;">
+                        <h3>Proveedor Principal</h3>
+                        <div class="wf-input">[Dropdown: OpenAI GPT-4]</div>
+                        <div class="wf-input">API Key: ******************</div>
+                        <span class="wf-button">Probar Conexión</span>
+                    </div>
+                    <div class="wf-box" style="flex-direction: column; align-items: flex-start; padding: 20px; text-align: left;">
+                        <h3>Parámetros del Modelo</h3>
+                        <div>Temperatura: 0.2</div>
+                        <div class="wf-text-line long"></div><br>
+                        <div>Límite de Contexto: 16k tokens</div>
+                        <div class="wf-text-line medium"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         15. PARÁMETROS 
+    ================================================= -->
+    <div class="screen-title">15. Parámetros (Sistema)</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Configuraciones de IA</div><div class="wf-sidebar-item active">Parámetros</div><div class="wf-sidebar-item">Gestión de usuario</div></div>
+            </div>
+            <div class="wf-main">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">Definición de Objetivos y Umbrales (KPIs)</h2>
+                </div>
+                
+                <div style="max-width: 800px; display: flex; flex-direction: column; gap: 30px; background: white; padding: 30px; border: 2px solid #1f2937; box-shadow: 4px 4px 0px rgba(31, 41, 55, 0.1);">
+                    
+                    <!-- Límite de Mermas Tolerables -->
+                    <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                            <div>
+                                <h3 style="margin: 0 0 5px 0;">Límite de Mermas Tolerables</h3>
+                                <div style="color: #6b7280; font-size: 0.9rem;">Alertar si el descarte de materia prima supera este porcentaje.</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="wf-box" style="width: 60px; height: 35px; font-weight: bold; font-size: 1.2rem; color: #3b82f6; border-color: #d1d5db; background: white;">4</div>
+                                <span style="font-weight: bold; font-size: 1.2rem; color: #6b7280;">%</span>
+                            </div>
+                        </div>
+                        <div style="position: relative; height: 6px; background: #e5e7eb; margin: 25px 0 15px 0; border-radius: 3px;">
+                            <div style="position: absolute; left: 0; top: 0; height: 100%; width: 25%; background: #3b82f6; border-radius: 3px;"></div>
+                            <div style="position: absolute; left: 25%; top: -6px; width: 18px; height: 18px; border-radius: 50%; background: #3b82f6; transform: translateX(-50%);"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #9ca3af; font-weight: bold;">
+                            <span>0%</span><span>5%</span><span>10%</span><span>15%</span>
+                        </div>
+                    </div>
+
+                    <!-- Margen de Rentabilidad Objetivo -->
+                    <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                            <div>
+                                <h3 style="margin: 0 0 5px 0;">Margen de Rentabilidad Objetivo</h3>
+                                <div style="color: #6b7280; font-size: 0.9rem;">Objetivo mínimo de margen neto por producto.</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="wf-box" style="width: 60px; height: 35px; font-weight: bold; font-size: 1.2rem; color: #10b981; border-color: #d1d5db; background: white;">20</div>
+                                <span style="font-weight: bold; font-size: 1.2rem; color: #6b7280;">%</span>
+                            </div>
+                        </div>
+                        <div style="position: relative; height: 6px; background: #e5e7eb; margin: 25px 0 15px 0; border-radius: 3px;">
+                            <div style="position: absolute; left: 0; top: 0; height: 100%; width: 33%; background: #10b981; border-radius: 3px;"></div>
+                            <div style="position: absolute; left: 33%; top: -6px; width: 18px; height: 18px; border-radius: 50%; background: #10b981; transform: translateX(-50%);"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #9ca3af; font-weight: bold;">
+                            <span>5%</span><span>20%</span><span>35%</span><span>50%</span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom row -->
+                    <div class="grid-2" style="margin-top: 10px;">
+                        <div>
+                            <h3 style="margin: 0 0 5px 0;">Tiempo máximo de inactividad (Horas)</h3>
+                            <div style="color: #6b7280; font-size: 0.9rem; margin-bottom: 15px;">Alerta crítica si una máquina supera este tiempo inactiva.</div>
+                            <div class="wf-input" style="width: 100px; padding: 8px;"></div>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0;">Costo Estándar de Energía (USD/kWh)</h3>
+                            <div style="color: #6b7280; font-size: 0.9rem; margin-bottom: 15px;">Valor base para calcular desviaciones financieras.</div>
+                            <div class="wf-input" style="width: 100px; padding: 8px;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         16. GESTIÓN DE USUARIO 
+    ================================================= -->
+    <div class="screen-title">16. Gestión de Usuario</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Parámetros</div><div class="wf-sidebar-item active">Gestión de usuario</div><div class="wf-sidebar-item">Historial de logs</div></div>
+            </div>
+            <div class="wf-main">
+                <div style="display: flex; justify-content: space-between;"><h2>Usuarios del Sistema</h2><span class="wf-button">+ Invitar Usuario</span></div>
+                <div class="wf-box" style="flex-direction: column; align-items: stretch; text-align: left; padding: 0;">
+                    <div class="table-row table-header"><div>Nombre</div><div>Rol</div><div>Último Acceso</div><div>Acciones</div></div>
+                    <div class="table-row"><div>Admin Principal</div><div>Gerente</div><div>Hoy 09:00</div><div>[Editar] [Eliminar]</div></div>
+                    <div class="table-row"><div>Carlos Ope</div><div>Operador</div><div>Ayer 15:30</div><div>[Editar] [Eliminar]</div></div>
+                    <div class="table-row"><div>Ana Fin</div><div>Auditor</div><div>Hace 2 días</div><div>[Editar] [Eliminar]</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         17. HISTORIAL DE LOGS 
+    ================================================= -->
+    <div class="screen-title">17. Historial de Logs (Técnico)</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Gestión de usuario</div><div class="wf-sidebar-item active">Historial de logs</div><div class="wf-sidebar-item">Salir</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Consola de Logs (Debug)</h2>
+                <div style="background: #111827; color: #10b981; padding: 20px; border-radius: 4px; font-family: monospace; flex: 1; overflow-y: auto; text-align: left; font-size: 14px;">
+                    <div>[2026-04-30 08:00:01] INFO: Servidor web iniciado en puerto 4000</div>
+                    <div>[2026-04-30 08:05:12] SUCCESS: Conexión a Base de Datos PostgreSQL establecida.</div>
+                    <div>[2026-04-30 08:15:33] WARN: Demora de 2000ms detectada en API OpenAI.</div>
+                    <div style="color: #ef4444;">[2026-04-30 09:10:05] ERROR: Fallo al sincronizar módulo CRM - Timeout.</div>
+                    <div>[2026-04-30 09:12:00] INFO: Reintentando sincronización CRM (1/3)...</div>
+                    <div>[2026-04-30 09:12:05] SUCCESS: Sincronización completada.</div>
+                    <div style="color: #6b7280;">> Esperando nuevos eventos...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==============================================
+         18. MI PERFIL Y PREFERENCIAS 
+    ================================================= -->
+    <div class="screen-title">18. Mi Perfil y Preferencias</div>
+    <div class="wireframe">
+        <div class="wf-header"><div><strong>BizLens AI</strong> | Gerencia</div><div>[Perfil]</div></div>
+        <div class="layout-app">
+            <div class="wf-sidebar">
+                <div class="sidebar-content"><div class="wf-sidebar-item">Gestión de usuario</div><div class="wf-sidebar-item">Historial de logs</div><div class="wf-sidebar-item active">Mi Perfil y Preferencias</div></div>
+            </div>
+            <div class="wf-main">
+                <h2>Configuración de Cuenta Personal</h2>
+                <div class="grid-2">
+                    <div class="wf-box" style="flex-direction: column; align-items: flex-start; padding: 20px; text-align: left;">
+                        <h3>Datos Personales</h3>
+                        <div class="wf-image" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px;">[ Foto ]</div>
+                        <label>Nombre Completo</label><div class="wf-input">Usuario Admin</div>
+                        <label>Email</label><div class="wf-input">admin@empresa.com</div>
+                        <span class="wf-button">Actualizar Datos</span>
+                    </div>
+                    <div class="wf-box" style="flex-direction: column; align-items: flex-start; padding: 20px; text-align: left;">
+                        <h3>Preferencias de Interfaz</h3>
+                        <label>Tema Visual</label><div class="wf-input">[Dropdown: Modo Oscuro / Claro / Sistema]</div>
+                        <label>Idioma</label><div class="wf-input">[Dropdown: Español / Inglés / Portugués]</div>
+                        <label>Notificaciones</label>
+                        <div style="margin: 5px 0;"><input type="checkbox" checked> Recibir alertas críticas por email</div>
+                        <div style="margin: 5px 0;"><input type="checkbox"> Recibir resumen semanal</div>
+                        <span class="wf-button" style="margin-top: 20px;">Guardar Preferencias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
