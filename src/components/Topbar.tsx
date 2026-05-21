@@ -12,7 +12,8 @@ import {
   LogOutIcon,
   XIcon,
   ArrowRightIcon,
-  InfoIcon
+  InfoIcon,
+  MenuIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
@@ -21,6 +22,7 @@ interface TopbarProps {
   breadcrumb: string;
   onToggleChat?: () => void;
   isChatOpen?: boolean;
+  onToggleSidebar?: () => void;
 }
 
 // ── Notification Dropdown ──
@@ -222,7 +224,7 @@ function ProfileDropdown({ onClose }: { onClose: () => void }) {
 }
 
 // ── Main Topbar ──
-export function Topbar({ breadcrumb, onToggleChat, isChatOpen }: TopbarProps) {
+export function Topbar({ breadcrumb, onToggleChat, isChatOpen, onToggleSidebar }: TopbarProps) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const { user } = useAuth();
@@ -230,9 +232,17 @@ export function Topbar({ breadcrumb, onToggleChat, isChatOpen }: TopbarProps) {
   const initials = user?.name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase() || 'U';
 
   return (
-    <header className="h-16 bg-surface/80 backdrop-blur-md border-b border-slate-200/60 flex items-center justify-between px-6 shrink-0 z-30 sticky top-0 transition-all">
-      <div className="flex items-center text-sm text-textMuted font-medium">
-        {breadcrumb}
+    <header className="h-16 bg-surface/80 backdrop-blur-md border-b border-slate-200/60 flex items-center justify-between px-4 md:px-6 shrink-0 z-30 sticky top-0 transition-all">
+      <div className="flex items-center gap-3 text-sm text-textMuted font-medium min-w-0">
+        {onToggleSidebar && (
+          <button
+            onClick={onToggleSidebar}
+            className="md:hidden p-1.5 -ml-1 text-slate-500 hover:bg-slate-100 rounded-md transition-colors"
+          >
+            <MenuIcon className="w-5 h-5" />
+          </button>
+        )}
+        <span className="truncate">{breadcrumb}</span>
       </div>
 
       <div className="flex items-center gap-3">

@@ -37,7 +37,7 @@ const settingsItems = [
   { path: '/logs', label: 'Historial de Logs', icon: ListIcon, roles: ['gerente'] },
 ];
 
-export function Sidebar() {
+export function Sidebar({ onClose }: { onClose?: () => void }) {
   const { user, logout } = useAuth();
   const currentRole = user?.role || 'gerente'; // Default a gerente para mostrar todas las vistas
 
@@ -63,6 +63,7 @@ export function Sidebar() {
           <NavLink
             key={item.path}
             to={item.path}
+            onClick={onClose}
             className={({ isActive }) => `
               flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 text-sm font-medium mb-1.5
               ${isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-textMuted hover:bg-slate-100 hover:text-textMain'}
@@ -85,6 +86,7 @@ export function Sidebar() {
               <NavLink
                 key={item.path}
                 to={item.path}
+                onClick={onClose}
                 className={({ isActive }) => `
                   flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 text-sm font-medium mb-1.5
                   ${isActive ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-textMuted hover:bg-slate-100 hover:text-textMain'}
@@ -101,7 +103,7 @@ export function Sidebar() {
       <div className="p-4 border-t border-slate-200 shrink-0">
         <NavLink
           to="/"
-          onClick={() => logout()}
+          onClick={() => { logout(); if (onClose) onClose(); }}
           className="flex items-center gap-3 px-3 py-2 rounded-md text-textMuted hover:bg-slate-50 hover:text-danger transition-colors text-sm font-medium"
         >
           <LogOutIcon className="w-5 h-5" />

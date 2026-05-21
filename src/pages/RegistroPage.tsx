@@ -25,7 +25,7 @@ export function RegistroPage() {
     navigate('/dashboard');
   };
   return (
-    <div className="flex h-screen w-full bg-surface">
+    <div className="flex min-h-screen w-full bg-surface">
       {/* Left Side - Abstract Graphic */}
       <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-[#0F52BA] to-[#1976D2] relative overflow-hidden items-center justify-center p-12 group">
         <ParticleBackground />
@@ -155,7 +155,7 @@ export function RegistroPage() {
       </div>
 
       {/* Right Side - Registration Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 overflow-y-auto">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 overflow-y-auto">
         <motion.div
           initial={{
             opacity: 0,
@@ -168,7 +168,7 @@ export function RegistroPage() {
           transition={{
             duration: 0.5
           }}
-          className="w-full max-w-[440px] py-8">
+          className="w-full max-w-[440px] py-4 sm:py-8">
           
           {/* Logo */}
           <div className="flex items-center gap-2 text-primary font-bold text-2xl mb-6">
@@ -180,7 +180,7 @@ export function RegistroPage() {
             </span>
           </div>
 
-          <h1 className="text-2xl font-bold text-textMain mb-1">
+          <h1 className="text-xl sm:text-2xl font-bold text-textMain mb-1">
             Crear cuenta corporativa
           </h1>
           <p className="text-sm text-textMuted mb-6">
@@ -248,7 +248,7 @@ export function RegistroPage() {
               <label className="text-sm font-medium text-textMuted block">
                 Seleccione su perfil de acceso
               </label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Gerencia Card */}
                 <button
                   type="button"

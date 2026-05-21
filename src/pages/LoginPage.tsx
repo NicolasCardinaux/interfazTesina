@@ -18,7 +18,7 @@ export function LoginPage() {
     navigate('/dashboard');
   };
   return (
-    <div className="flex h-screen w-full bg-surface">
+    <div className="flex min-h-screen w-full bg-surface">
       {/* Left Side - Abstract Graphic */}
       <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-[#0F52BA] to-[#1976D2] relative overflow-hidden items-center justify-center p-12 group">
         <ParticleBackground />
@@ -97,7 +97,7 @@ export function LoginPage() {
       </div>
 
       {/* Right Side - Login Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8">
         <motion.div
           initial={{
             opacity: 0,
